@@ -7,14 +7,12 @@
     
         <title>Home Page</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="main.css"> 
     </head>
+
     <body>
 
-        <header>
-            <div class="container">
-                <h2>What Do you Meme</h2>
-            </div>
-        </header>
+        <div id="header-placeholder"></div>
 
         <div class="container">
             <div class="jumbotran">
@@ -34,28 +32,32 @@
                               </div>
                               
                         </div>
-                </div>
+                
                 <div class="col-md-4">
-                        <div class="card" >
-                                <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card">
+                                <h4 class="card-header">Featured</h4>
                                 <div class="card-body">
-                                  <h4 class="card-title">Rules</h4>
-                                  <p class="card-text">Go somewhere.</p>
+                                  <h4 class="card-title">Signup</h4>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
+                              </div>
                               
                         </div>
                 </div>
 
                 <div class="col-md-4">
-                        <div class="card" >
-                                <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card">
+                                <h4 class="card-header">Featured</h4>
                                 <div class="card-body">
-                                  <h4 class="card-title">Cool meme</h4>
-                                  <p class="card-text">Go somewhere.</p>
+                                  <h4 class="card-title">Signup</h4>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
+                              </div>
                               
                         </div>
-                </div>
+                
 
         </div>
 
@@ -65,6 +67,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script>
             $(function(){
+                $("#header-placeholder").load("_header.html");
+
                 $(".btn-primary").click(Function(){
                     $(this).closest(".col-md-4").css({ 'maxWidth': 'none' }).animate({ 'flex-bases' : '100%'})
                 })
