@@ -1,5 +1,6 @@
-const $ = require("jquery");
-require("./main.scss");
+import * as $ from 'jquery';
+declare const navProperties: any;
+
 
 $(function(){
     $("#header-placeholder").load("_header.html" , function () {
