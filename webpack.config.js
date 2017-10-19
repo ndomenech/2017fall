@@ -34,16 +34,7 @@ module.exports = {
             Popper: ['popper.js', 'default'],
           }),
         extractSass
-    ]
+    ],
+    devtool: 'source-map'
 };
-© 2017 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
+

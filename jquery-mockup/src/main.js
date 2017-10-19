@@ -1,3 +1,4 @@
 import 'bootstrap'
-import './navigation.ts';
+import './navagation.ts';
+import './game.ts';
 import './main.scss';
