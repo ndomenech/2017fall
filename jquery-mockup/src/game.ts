@@ -35,6 +35,24 @@ export class Room {
             this.players.map( x => `<li class="list-group-item">${x.name}</li>` ).join("")
         );
     }
+
+    update(){
+        $.get("/game/room/picture").done( data => {
+            this.picture = data; 
+            this.drawPicture();
+    });
+    
+        $.get("/game/room/quotes").done( data =>{
+            this.quotes = data; 
+            this.drawQuotes();
+    }) ; 
+
+
+    }
+
+    init(){
+        setInterval(()=> this.update(), 1000)
+    }
 }
 
 export class Game {
@@ -63,11 +81,8 @@ const room = new Room();
 const me = new Player();
 var i = 0;
 
+room.init();
 game.init().done(()=>{
-    
-    room.picture = game.pictures[i];
-    room.drawPicture();
-    room.drawQuotes();
     room.drawPlayers();
     
     me.quotes = game.quotes;
@@ -79,7 +94,5 @@ game.init().done(()=>{
 
 $("#cmd-flip").click(function(e){
     e.preventDefault();
-    i++;
-    room.picture = game.pictures[i];
-    room.drawPicture();
+    $.post("/game/room/picture")
 })
