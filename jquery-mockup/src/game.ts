@@ -14,7 +14,16 @@ export class Player {
             this.quotes.map( x => `<li class="list-group-item">${x.text}</li>` ).join("")
         );
     }
+
+    init(){
+        $.getJSON("./game/quote").done( data =>{
+            this.quotes = data;
+            this.drawQuotes;
+        }
+        )
+    }
 }
+
 
 export class Room {
     players: Player[] = [new Player(), new Player()];
@@ -80,7 +89,7 @@ const game = new Game();
 const room = new Room();
 const me = new Player();
 var i = 0;
-
+me.init();
 room.init();
 game.init().done(()=>{
     room.drawPlayers();
@@ -95,4 +104,12 @@ game.init().done(()=>{
 $("#cmd-flip").click(function(e){
     e.preventDefault();
     $.post("/game/room/picture")
+})
+
+$("#my-quotes").click( "li", function(e){
+    e.preventDefault();
+    const $li = $(e.originalEvent.srcElement );
+    const data = { text: $li.text() };
+    $.post("/game/room/quotes", data );
+    $li.remove();
 })
