@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Room, Player, Quote } from '../models/game';
+
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-play',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayComponent implements OnInit {
 
-  constructor() { }
+    apiRoot = "//localhost:3001"
+    room = new Room();
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        setInterval(()=> this.update(), 1000)
+    }
+
+    update(){
+        $.get(this.apiRoot + "/game/room/picture").done( data => {
+            this.room.picture = data;
+        });
+        $.getJSON(this.apiRoot + "/game/room/quotes").done( data =>{
+            this.room.quotes = data;
+        });
+    }
 
 }
