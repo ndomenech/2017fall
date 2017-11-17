@@ -7,7 +7,7 @@
                                 Players
                             </div>
                             <ul class="list-group list-group-flush" id="players">
-                                <li *ngFor="let x of player.quotes" class="list-group-item">{{x.name}}</li>
+                                <li *ngFor="let x of room.players" class="list-group-item">{{x.name}}</li>
                             </ul>
                         </div>
                         
@@ -29,14 +29,19 @@
                             <div class="card" >
                                     <div class="card-body">
                                         <img class="card-img-top" [src]="room.picture" alt="Card image cap" id="picture" >
-                                        <a href="#"  class="btn btn-primary" (click)="flipPicture($event)" >Flip a new card</a>
+                                        <a href="#" class="btn btn-primary" id="cmd-flip" (click)="flipPicture($event)" >Flip a new card</a>
     
                                         <div class="card" >
                                                 <div class="card-header">
                                                     Played Quotes
                                                 </div>
                                                 <ul class="list-group list-group-flush" id="played-quotes">
-                                                    <li *ngFor="let x of room.quotes" class="list-group-item">{{x.text}}</li>
+                                                    <li *ngFor="let x of room.quotes; index as i" 
+                                                        class="list-group-item d-flex justify-content-between align-items-center"
+                                                        [ngClass]="{'list-group-item-success': room.chosenQuote == i}">
+                                                        {{x.text}}
+                                                        <a href="#" class="btn btn-sm btn-primary"  [ngClass]="{'disabled': room.chosenQuote != null}" (click)="chooseQuote($event, i)">Choose</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                                             
