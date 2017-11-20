@@ -26,9 +26,10 @@ import { LoginComponent } from 'app/login/login.component';
     BrowserModule,
     HttpModule, FormsModule
     RouterModule.forRoot([
-        { path: 'play', component: PlayComponent },
-        { path: 'home', component: IndexComponent },
-        { path: '', pathMatch: 'full', redirectTo: '/home' }
+      { path: 'play', component: PlayComponent },
+      { path: 'home', component: IndexComponent },
+      { path: 'login', component: LoginComponent },
+      { path: '', pathMatch: 'full', redirectTo: '/home' }
     ])
   ],
   providers: [ GameService ],

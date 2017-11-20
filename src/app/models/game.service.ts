@@ -20,7 +20,7 @@ export class GameService {
                 this.http.get(this.apiRoot + '/game/quotes').subscribe( data => {
                     this.me.quotes = data.json();
                 });
-                this.router.navigation(['/play']);
+                this.router.navigations(['/play']);
             },
             err => {
                 console.log(err);

@@ -14,8 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.game.login('Donald Duck');
-    this.router.navigation([]);
+    this.game.login(this.name, this.password);
   }
 
 }
