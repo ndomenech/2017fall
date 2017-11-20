@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from "@angular/http";
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,9 +22,9 @@ import { GameService } from 'app/models/game.service';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot([
-        { path: "play", component: PlayComponent },
-        { path: "home", component: IndexComponent },
-        { path: "", pathMatch: "full", redirectTo: "/home" }
+        { path: 'play', component: PlayComponent },
+        { path: 'home', component: IndexComponent },
+        { path: '', pathMatch: 'full', redirectTo: '/home' }
     ])
   ],
   providers: [ GameService ],

@@ -8,13 +8,13 @@ import { GameService } from 'app/models/game.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private game:GameService) { }
+  constructor(private game: GameService) { }
 
   ngOnInit() {
   }
 
   login(){
-    this.game.me =new Player();
+    this.game.me = new Player();
   }
 
 }
