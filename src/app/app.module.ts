@@ -1,35 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from "@angular/router";
+import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeadComponent } from './head/head.component';
 import { NavComponent } from './nav/nav.component';
 import { PlayComponent } from './play/play.component';
 import { IndexComponent } from './index/index.component';
-import { GameService } from 'app/models/game.service';
-import { LoginComponent } from 'app/login/login.component';
+import { GameService } from './models/game.service';
+import { LoginrComponent } from './loginr/loginr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeadComponent,
     NavComponent,
     PlayComponent,
     IndexComponent,
-    LoginComponent
+    LoginrComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule, FormsModule
+    HttpModule, FormsModule,
     RouterModule.forRoot([
-      { path: 'play', component: PlayComponent },
-      { path: 'home', component: IndexComponent },
-      { path: 'login', component: LoginComponent },
-      { path: '', pathMatch: 'full', redirectTo: '/home' }
+        { path: "play", component: PlayComponent },
+        { path: "home", component: IndexComponent },
+        { path: "login", component: LoginrComponent },
+        { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],
   providers: [ GameService ],

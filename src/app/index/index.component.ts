@@ -1,23 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../models/game.service';
-import { Player } from '../models/game';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss']
 })
-export class LoginrComponent implements OnInit {
+export class IndexComponent implements OnInit {
 
-  constructor(private game: GameService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  login(){
-    this.game.me = new Player();
-    this.router.navigate(['/play']);
   }
 
 }

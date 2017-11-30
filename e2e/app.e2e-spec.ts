@@ -1,14 +1,14 @@
-import { TempPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('temp App', function() {
-  let page: TempPage;
+describe('temp App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new TempPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

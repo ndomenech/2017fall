@@ -1,6 +1,5 @@
-/* tslint:disable:no-unused-variable */
+import { TestBed, inject } from '@angular/core/testing';
 
-import { TestBed, async, inject } from '@angular/core/testing';
 import { AuthGuardService } from './auth-guard.service';
 
 describe('AuthGuardService', () => {
@@ -10,7 +9,7 @@ describe('AuthGuardService', () => {
     });
   });
 
-  it('should ...', inject([AuthGuardService], (service: AuthGuardService) => {
+  it('should be created', inject([AuthGuardService], (service: AuthGuardService) => {
     expect(service).toBeTruthy();
   }));
 });
