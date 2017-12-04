@@ -25,8 +25,11 @@ router
     })
     .post("/room/players",(req, res) => {
         if(req.body.password == "password"){
-            const player = { name: req.body.name, id: game.room.players.length };
-            game.room.players.push(player);
+            let palyer = game.room.players.find(x => x.fbid == req.body.fbdi);
+            if(!player){
+                player = { name: req.body.name, id: game.room.players.length, fbdi: req.body.fbid, picture: res.body.picture };
+                game.room.players.push(player);    
+            }
             res.status(201).send(player);
         }else{
             res.status(403).send("Invalid Password");
