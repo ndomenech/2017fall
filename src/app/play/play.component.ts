@@ -3,6 +3,9 @@ import { Http } from "@angular/http";
 import { Room, Player, Quote } from '../models/game';
 import { GameService } from '../models/game.service';
 import { Router } from '@angular/router';
+import { Image } from '../widgets/picture-chooser/picture-chooser.component';
+
+declare const FB;
 
 @Component({
   selector: 'app-play',
@@ -13,6 +16,8 @@ export class PlayComponent implements OnInit {
 
     room = new Room();
     me: Player;
+
+    FBImages: Images[];
 
     constructor(private http: Http, public game: GameService, private router: Router) { }
 
@@ -40,7 +45,7 @@ export class PlayComponent implements OnInit {
         const data = { text: quote.text, player: this.me.name };
         this.http.post(this.game.apiRoot + "/game/room/quotes", data).subscribe(res=>{
             this.me.quotes.splice(i, 1);
-            this.me.quotes.push( res.json() );            
+            this.me.quotes.push( res.json() );
         })
     }
 
@@ -53,4 +58,13 @@ export class PlayComponent implements OnInit {
     chosenQuote = ()=> this.room.quotes.find(x=> x.chosen);
     myQuote = ()=> this.room.quotes.find(x=> x.player ==this.me.name);
     
+    showFBPicture(e: MouseEvent){
+        e.preventDefault();
+        
+        FB.api('me/photos?fields=album,picture,images', (response: any) => {
+            console.log(response);
+            this.FBImages = response.data.map( (x: any)=> ({ id: x.id, src: x.picture, link: x.images[0].source }) );
+          });
+
+    }
 }
