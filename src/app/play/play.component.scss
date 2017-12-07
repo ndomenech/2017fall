@@ -1,8 +1,10 @@
-#players{
+#players {
     .list-group-item {
         padding: 5px;
-        .badge{
-            float: left;
-        } 
+
+        .badge {
+            float: right;
+            margin: 5px;
+        }
     }
 }
